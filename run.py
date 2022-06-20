@@ -62,6 +62,13 @@ def generate_word(word_list):
 
     return selected_word
     
+def show_hidden_word(selected_word):
+    """
+    Converts the randomly selected word into a string of equal length but with hidden letters.
+    """
+    hidden_word = '-' * (len(selected_word))
+    
+    return hidden_word
 
 # Request letter function
 def request_letter():
@@ -91,7 +98,7 @@ def request_letter():
         request_letter()
     else:
         guessed_letters.append(guess)
-# Validate letter function
+
 
 # Check letter in word function
 
@@ -102,6 +109,8 @@ def request_letter():
 
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
-generate_word(selected_list)
+selected_word = generate_word(selected_list)
+print(selected_word)
 request_letter()
 print(guessed_letters)
+print(show_hidden_word(selected_word))
