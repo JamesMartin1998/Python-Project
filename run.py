@@ -70,7 +70,6 @@ def show_hidden_word(selected_word):
     
     return hidden_word
 
-# Request letter function
 def request_letter():
     """
     Requests the user to input a letter as a guess and validates it.
@@ -99,8 +98,17 @@ def request_letter():
     else:
         guessed_letters.append(guess)
 
+def check_letter_in_word(letter, selected_word):
+    """
+    Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list it is most recent.
+    """
+    recent_guess = letter
 
-# Check letter in word function
+    if recent_guess in selected_word:
+        print(f"{recent_guess} is correct!")
+    else:
+        print("Ahh... it's not in the word.")
+    
 
 # Decrement lives function
 
@@ -111,6 +119,8 @@ difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 selected_word = generate_word(selected_list)
 print(selected_word)
+print(show_hidden_word(selected_word))
 request_letter()
 print(guessed_letters)
-print(show_hidden_word(selected_word))
+check_letter_in_word(guessed_letters[-1], selected_word)
+
