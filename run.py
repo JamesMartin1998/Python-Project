@@ -1,6 +1,8 @@
+import random
+
 print("Welcome to Hangman!\nTry to guess the word by guessing individual letters inside!\n")
 
-easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug" "book", "jar", "snake", "light", "tree"]
+easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar", "snake", "light", "tree"]
 medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring", "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
 hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
 
@@ -50,8 +52,14 @@ def set_list(difficulty):
 
     return selected_list
     
+def generate_word(word_list):
+    """
+    Takes the selected list as a parameter and randomly selects one word from the list.
+    """
+    selected_word = random.choice(word_list)
 
-
+    return selected_word
+    
 
 # Request letter function
 
@@ -65,4 +73,5 @@ def set_list(difficulty):
 
 
 difficulty = request_difficulty()
-print(set_list(difficulty))
+selected_list = (set_list(difficulty))
+print(generate_word(selected_list))
