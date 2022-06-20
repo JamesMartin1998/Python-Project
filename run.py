@@ -114,15 +114,47 @@ def check_letter_in_word(letter, selected_word):
 # Decrement lives function
 
 # Show current guess function
-# def update_hidden()
 
+# update_hidden function adapts on code from following link
+# https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string.
+def update_hidden(correct_guess, selected_word, hidden_word):
+    """
+    If correct guess == None, it means the letter isn't in the word.
+
+    Else finds the first occurence index of the letter in the selected word. Then replaces the letter so it can't be found again
+    on the next loop. Hidden word converted into list and letter replaces '-' and finally converted back to a string. Loop
+    continues until there are no more occurrences of the letter in the word.
+    """
+    if correct_guess == None:
+        pass
+    else:
+        letter = correct_guess
+        word = selected_word
+        hidden = hidden_word
+        while True:
+            if letter in word:
+                index = word.find(correct_guess)
+                print(f"The index is {index}")
+
+                word = word.replace(correct_guess, "-", 1)
+                print(word)
+
+                temp = list(hidden)
+                temp[index] = letter
+                hidden = "".join(temp)
+
+                print(hidden)
+            else:
+                break
+        
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 selected_word = generate_word(selected_list)
 print(selected_word)
-print(show_hidden_word(selected_word))
+hidden_word = (show_hidden_word(selected_word))
+print(hidden_word)
 request_letter()
 print(guessed_letters)
 correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
 print(correct_guess)
-
+update_hidden(correct_guess, selected_word, hidden_word)
