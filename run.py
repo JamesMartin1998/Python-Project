@@ -106,6 +106,7 @@ def check_letter_in_word(letter, selected_word):
 
     if recent_guess in selected_word:
         print(f"{recent_guess} is correct!")
+        return recent_guess
     else:
         print("Ahh... it's not in the word.")
     
@@ -113,7 +114,7 @@ def check_letter_in_word(letter, selected_word):
 # Decrement lives function
 
 # Show current guess function
-
+# def update_hidden()
 
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
@@ -122,5 +123,6 @@ print(selected_word)
 print(show_hidden_word(selected_word))
 request_letter()
 print(guessed_letters)
-check_letter_in_word(guessed_letters[-1], selected_word)
+correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+print(correct_guess)
 
