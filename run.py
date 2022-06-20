@@ -62,7 +62,27 @@ def generate_word(word_list):
     
 
 # Request letter function
-
+def request_letter():
+    """
+    Requests the user to input a letter as a guess.
+    """
+    try:
+        guess = input("Guess one letter: ")
+        if guess == "":
+            raise ValueError(
+                print("You didn't guess a letter")
+            )
+        elif guess.isalpha() == False:
+            raise ValueError(
+                print(f"{guess} is not a letter")
+            )
+        elif len(guess) > 1:
+            raise ValueError(
+                print(f"{guess} is more than one letter")
+            )
+    except ValueError: 
+        print("Error. PLease try again.")
+        request_letter()
 # Validate letter function
 
 # Check letter in word function
@@ -74,4 +94,5 @@ def generate_word(word_list):
 
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
-print(generate_word(selected_list))
+generate_word(selected_list)
+request_letter()
