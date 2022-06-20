@@ -6,6 +6,8 @@ easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "s
 medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring", "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
 hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
 
+guessed_letters = []
+
 # Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
 def request_difficulty():
     """
@@ -64,7 +66,7 @@ def generate_word(word_list):
 # Request letter function
 def request_letter():
     """
-    Requests the user to input a letter as a guess.
+    Requests the user to input a letter as a guess and validates it.
     """
     try:
         guess = input("Guess one letter: ")
@@ -80,9 +82,15 @@ def request_letter():
             raise ValueError(
                 print(f"{guess} is more than one letter")
             )
+        elif guess in guessed_letters:
+            raise ValueError(
+                print(f"{guess} has already been guessed")
+            )
     except ValueError: 
         print("Error. PLease try again.")
         request_letter()
+    else:
+        guessed_letters.append(guess)
 # Validate letter function
 
 # Check letter in word function
@@ -96,3 +104,4 @@ difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 generate_word(selected_list)
 request_letter()
+print(guessed_letters)
