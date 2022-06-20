@@ -27,7 +27,7 @@ def request_difficulty():
                 f"Invalid difficulty provided"
             )
     except ValueError as e:
-        print(f"{difficulty} is invalid difficulty. Please try again.\n")
+        print(f"{difficulty} is an invalid difficulty. Please try again.\n")
         request_difficulty()
 
     return difficulty
@@ -35,11 +35,20 @@ def request_difficulty():
 
 # Generate word function
 
-def generate_word(difficulty):
+def set_list(difficulty):
     """
-    Uses the difficulty variable value to select a list to choose a word from. Randomly choose one word from the list.
+    Uses the difficulty variable value to select a list to choose a word from.
     """
     level = difficulty
+
+    if level == "easy":
+        selected_list = easy_words
+    elif level == "medium":
+        selected_list = medium_words
+    else:
+        selected_list = hard_words
+
+    return selected_list
     
 
 
@@ -56,4 +65,4 @@ def generate_word(difficulty):
 
 
 difficulty = request_difficulty()
-generate_word(difficulty)
+print(set_list(difficulty))
