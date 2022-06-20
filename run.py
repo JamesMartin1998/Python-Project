@@ -75,7 +75,7 @@ def request_letter():
     Requests the user to input a letter as a guess and validates it.
     """
     try:
-        guess = input("Guess one letter: ")
+        guess = input("Guess one letter: ").lower()
         if guess == "":
             raise ValueError(
                 print("You didn't guess a letter")
@@ -134,10 +134,8 @@ def update_hidden(correct_guess, selected_word, hidden_word):
         while True:
             if letter in word:
                 index = word.find(correct_guess)
-                print(f"The index is {index}")
 
                 word = word.replace(correct_guess, "-", 1)
-                print(word)
 
                 temp = list(hidden)
                 temp[index] = letter
