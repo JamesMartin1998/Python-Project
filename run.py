@@ -6,6 +6,11 @@ hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury"
 
 # Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
 def request_difficulty():
+    """
+    Requests the user to select a difficulty by inputting a string input. Try to set the diffculty variable but if the wrong
+    input is provided, a ValueError is raised and the user can try again. Once the user inputs the correct string, the function
+    returns the difficulty.
+    """
     try:
         difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n")
         if difficulty == "e" or difficulty == "E":
@@ -24,16 +29,18 @@ def request_difficulty():
     except ValueError as e:
         print(f"{difficulty} is invalid difficulty. Please try again.\n")
         request_difficulty()
-        return False
 
-    return True
+    return difficulty
         
-
-# Validate difficulty function
 
 # Generate word function
 
-# def generate_word():
+def generate_word(difficulty):
+    """
+    Uses the difficulty variable value to select a list to choose a word from. Randomly choose one word from the list.
+    """
+    level = difficulty
+    
 
 
 
@@ -47,4 +54,6 @@ def request_difficulty():
 
 # Show current guess function
 
-request_difficulty()
+
+difficulty = request_difficulty()
+generate_word(difficulty)
