@@ -223,20 +223,20 @@ def update_hidden(correct_guess, selected_word, hidden_word):
                 temp[index] = letter
                 hidden = "".join(temp)
 
-                print(hidden)
+                print(hidden)    
             else:
                 break
-            return hidden
+                print(hidden)
+                return hidden
+        return hidden
+
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 selected_word = generate_word(selected_list)
 print(selected_word)
 hidden_word = (show_hidden_word(selected_word))
 print(hidden_word)
-
 request_letter()
 correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-hidden_word = update_hidden(correct_guess, selected_word, hidden_word)
-request_letter()
-correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-update_hidden(correct_guess, selected_word, hidden_word)
+hidden = update_hidden(correct_guess, selected_word, hidden_word)
+print(hidden)
