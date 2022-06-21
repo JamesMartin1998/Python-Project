@@ -1,4 +1,5 @@
 import random
+from pprint import pprint
 
 print("Welcome to Hangman!\nTry to guess the word by guessing individual letters inside!\n")
 
@@ -7,6 +8,83 @@ medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "passwo
 hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
 
 guessed_letters = []
+
+six_lives = ("""
+        ________________
+        |       |
+        |       
+        |     
+        |       
+        |      
+        |_______________
+        """)
+
+
+five_lives = ("""
+        ________________
+        |       |
+        |       O
+        |      
+        |       
+        |      
+        |_______________
+        """)
+
+
+four_lives = ("""
+        ________________
+        |       |
+        |       O
+        |       | 
+        |       |
+        |      
+        |_______________
+        """)
+
+
+three_lives = ("""
+        ________________
+        |       |
+        |       O
+        |     / | 
+        |       |
+        |       
+        |_______________
+        """)
+
+
+two_lives = ("""
+        ________________
+        |       |
+        |       O
+        |     / | \\
+        |       |
+        |      
+        |_______________
+        """)
+
+
+one_life = ("""
+        ________________
+        |       |
+        |       O
+        |     / | \\
+        |       |
+        |      / 
+        |_______________
+        """)
+
+no_lives = ("""
+        ________________
+        |       |
+        |       O
+        |     / | \\
+        |       |
+        |      / \\
+        |_______________
+        """)
+
+hangman = [six_lives, five_lives, four_lives, three_lives, two_lives, one_life, no_lives]
 
 # Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
 def request_difficulty():
@@ -145,14 +223,17 @@ def update_hidden(correct_guess, selected_word, hidden_word):
             else:
                 break
         
-difficulty = request_difficulty()
-selected_list = (set_list(difficulty))
-selected_word = generate_word(selected_list)
-print(selected_word)
-hidden_word = (show_hidden_word(selected_word))
-print(hidden_word)
-request_letter()
-print(guessed_letters)
-correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-print(correct_guess)
-update_hidden(correct_guess, selected_word, hidden_word)
+# difficulty = request_difficulty()
+# selected_list = (set_list(difficulty))
+# selected_word = generate_word(selected_list)
+# print(selected_word)
+# hidden_word = (show_hidden_word(selected_word))
+# print(hidden_word)
+# request_letter()
+# print(guessed_letters)
+# correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+# print(correct_guess)
+# update_hidden(correct_guess, selected_word, hidden_word)
+
+
+
