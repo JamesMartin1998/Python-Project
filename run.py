@@ -199,7 +199,7 @@ def check_letter_in_word(letter, selected_word):
 
 # update_hidden function adapts on code from following link
 # https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string.
-def update_hidden(correct_guess, selected_word, hidden_word):
+def update_hidden(correct_guess, selected_word, guess_state):
     """
     If correct guess == None, it means the letter isn't in the word.
 
@@ -208,17 +208,17 @@ def update_hidden(correct_guess, selected_word, hidden_word):
     continues until there are no more occurrences of the letter in the word.
     """
     if correct_guess == None:
-        pass
+        return hidden_word
     else:
         letter = correct_guess
         word = selected_word
-        hidden = hidden_word
+        hidden = guess_state
         while True:
             if letter in word:
                 index = word.find(correct_guess)
 
                 word = word.replace(correct_guess, "-", 1)
-
+                print(f'inside function: {hidden}')
                 temp = list(hidden)
                 temp[index] = letter
                 hidden = "".join(temp)
@@ -241,7 +241,10 @@ remaining_lives = 6
 while True:
     request_letter()
     correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-    hidden_word = update_hidden(correct_guess, selected_word, hidden_word)
+    print(hidden_word)
+    updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
+    hidden_word = updated_hidden
+    
     if correct_guess == None:
         remaining_lives -= 1
         print(f"Remaining lives = {remaining_lives}")
