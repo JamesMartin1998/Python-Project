@@ -236,7 +236,13 @@ selected_word = generate_word(selected_list)
 print(selected_word)
 hidden_word = (show_hidden_word(selected_word))
 print(hidden_word)
-request_letter()
-correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-hidden = update_hidden(correct_guess, selected_word, hidden_word)
-print(hidden)
+remaining_lives = 6
+
+while True:
+    request_letter()
+    correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+    hidden_word = update_hidden(correct_guess, selected_word, hidden_word)
+    if correct_guess == None:
+        remaining_lives -= 1
+        if remaining_lives == 0:
+            break
