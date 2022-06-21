@@ -176,6 +176,9 @@ def request_letter():
     else:
         guessed_letters.append(guess)
 
+
+
+
 def check_letter_in_word(letter, selected_word):
     """
     Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list it is most recent.
@@ -190,6 +193,7 @@ def check_letter_in_word(letter, selected_word):
     
 
 # Decrement lives function
+    
 
 # Show current guess function
 
@@ -222,15 +226,17 @@ def update_hidden(correct_guess, selected_word, hidden_word):
                 print(hidden)
             else:
                 break
-        
+            return hidden
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 selected_word = generate_word(selected_list)
+print(selected_word)
 hidden_word = (show_hidden_word(selected_word))
 print(hidden_word)
+
+request_letter()
+correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+hidden_word = update_hidden(correct_guess, selected_word, hidden_word)
 request_letter()
 correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
 update_hidden(correct_guess, selected_word, hidden_word)
-
-
-
