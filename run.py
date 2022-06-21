@@ -223,17 +223,14 @@ def update_hidden(correct_guess, selected_word, hidden_word):
             else:
                 break
         
-# difficulty = request_difficulty()
-# selected_list = (set_list(difficulty))
-# selected_word = generate_word(selected_list)
-# print(selected_word)
-# hidden_word = (show_hidden_word(selected_word))
-# print(hidden_word)
-# request_letter()
-# print(guessed_letters)
-# correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-# print(correct_guess)
-# update_hidden(correct_guess, selected_word, hidden_word)
+difficulty = request_difficulty()
+selected_list = (set_list(difficulty))
+selected_word = generate_word(selected_list)
+hidden_word = (show_hidden_word(selected_word))
+print(hidden_word)
+request_letter()
+correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+update_hidden(correct_guess, selected_word, hidden_word)
 
 
 
