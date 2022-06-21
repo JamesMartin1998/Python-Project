@@ -244,5 +244,8 @@ while True:
     hidden_word = update_hidden(correct_guess, selected_word, hidden_word)
     if correct_guess == None:
         remaining_lives -= 1
+        print(f"Remaining lives = {remaining_lives}")
+        print(hangman[6 - remaining_lives])
         if remaining_lives == 0:
+            print("No more lives")
             break
