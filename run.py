@@ -1,7 +1,7 @@
 import random
 from pprint import pprint
 
-print("Welcome to Hangman!\nTry to guess the word by guessing individual letters inside!\n")
+
 
 guessed_letters = []
 
@@ -250,7 +250,7 @@ def play_again():
     try:
         response = input("Do you want to play again? Type'y' for 'yes' or 'n' for 'no'.")
         if response.lower() == 'y':
-            print("Let's play again!")
+            print("\nLet's play again!")
             start_game()
         elif response.lower() == "n":
             print("Exiting game...")
@@ -289,7 +289,7 @@ def start_game():
             print(hangman[6 - remaining_lives])
             print(hidden_word)
             if remaining_lives == 0:
-                print("No more lives")
+                print("\nNo more lives")
                 break
 
         elif check_finished(hidden_word) == True:
@@ -297,4 +297,5 @@ def start_game():
         
     play_again()
 
+print("Welcome to Hangman!\n\nTry to guess the word by guessing individual letters inside!\n")
 start_game()
