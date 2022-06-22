@@ -240,6 +240,21 @@ def check_finished(guess_state):
         print("Well done you guessed the word!")
         return True
 
+def play_again():
+    """
+    Once a game is over, asks the user if they want to restart the game or finish playing.
+    """
+    try:
+        response = input("Do you want to play again? Type'y' for 'yes' or 'n' for 'no'.")
+        if response.lower() == 'y':
+            print("Let's play again!")
+            start_game()
+        elif response.lower() == "n":
+            print("Exiting game...")
+    except ValueError:
+        print("Incorrect value. Please try again.")
+
+
 def start_game():
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
@@ -266,5 +281,7 @@ def start_game():
 
         elif check_finished(hidden_word) == True:
             break
+        
+    play_again()
 
 start_game()
