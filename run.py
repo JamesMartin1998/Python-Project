@@ -98,13 +98,13 @@ def request_difficulty():
         difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n")
         if difficulty == "e" or difficulty == "E":
             difficulty = "easy"
-            print("You selected 'Easy' difficulty.")
+            print("\nYou selected 'Easy' difficulty.")
         elif difficulty == "m" or difficulty == "M":
             difficulty = "medium"
-            print("You selected 'Medium' difficulty.")
+            print("\nYou selected 'Medium' difficulty.")
         elif difficulty == "h" or difficulty == "H":
             difficulty = "hard"
-            print("You selected 'Hard' difficulty")
+            print("\nYou selected 'Hard' difficulty.")
         else:
             raise ValueError(
                 f"Invalid difficulty provided"
@@ -187,10 +187,11 @@ def check_letter_in_word(letter, selected_word):
     recent_guess = letter
 
     if recent_guess in selected_word:
+        print("")
         print(f"{recent_guess} is correct!")
         return recent_guess
     else:
-        print("Ahh... it's not in the word.")
+        print("\nAhh... it's not in the word.")
     
 
 # Decrement lives function
@@ -220,7 +221,7 @@ def update_hidden(correct_guess, selected_word, guess_state):
                 index = word.find(correct_guess)
 
                 word = word.replace(correct_guess, "-", 1)
-                print(f'inside function: {hidden}')
+                # print(f'inside function: {hidden}')
                 temp = list(hidden)
                 temp[index] = letter
                 hidden = "".join(temp)
@@ -269,15 +270,16 @@ def start_game():
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
     selected_word = generate_word(selected_list)
-    print(selected_word)
+    # print(selected_word)
     hidden_word = (show_hidden_word(selected_word))
+    print("")
     print(hidden_word)
     remaining_lives = 6
 
     while True:
         request_letter()
         correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-        print(hidden_word)
+        # print(hidden_word)
         updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
         hidden_word = updated_hidden
         
@@ -285,6 +287,7 @@ def start_game():
             remaining_lives -= 1
             print(f"Remaining lives = {remaining_lives}")
             print(hangman[6 - remaining_lives])
+            print(hidden_word)
             if remaining_lives == 0:
                 print("No more lives")
                 break
