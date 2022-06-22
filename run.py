@@ -240,29 +240,31 @@ def check_finished(guess_state):
         print("Well done you guessed the word!")
         return True
 
-difficulty = request_difficulty()
-selected_list = (set_list(difficulty))
-selected_word = generate_word(selected_list)
-print(selected_word)
-hidden_word = (show_hidden_word(selected_word))
-print(hidden_word)
-remaining_lives = 6
-
-while True:
-    request_letter()
-    correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+def start_game():
+    difficulty = request_difficulty()
+    selected_list = (set_list(difficulty))
+    selected_word = generate_word(selected_list)
+    print(selected_word)
+    hidden_word = (show_hidden_word(selected_word))
     print(hidden_word)
-    updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
-    hidden_word = updated_hidden
-    
-    if correct_guess == None:
-        remaining_lives -= 1
-        print(f"Remaining lives = {remaining_lives}")
-        print(hangman[6 - remaining_lives])
-        if remaining_lives == 0:
-            print("No more lives")
+    remaining_lives = 6
+
+    while True:
+        request_letter()
+        correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
+        print(hidden_word)
+        updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
+        hidden_word = updated_hidden
+        
+        if correct_guess == None:
+            remaining_lives -= 1
+            print(f"Remaining lives = {remaining_lives}")
+            print(hangman[6 - remaining_lives])
+            if remaining_lives == 0:
+                print("No more lives")
+                break
+
+        elif check_finished(hidden_word) == True:
             break
 
-    elif check_finished(hidden_word) == True:
-        break
-
+start_game()
