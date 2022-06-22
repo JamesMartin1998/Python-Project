@@ -290,6 +290,7 @@ def start_game():
             print(hidden_word)
             if remaining_lives == 0:
                 print("\nNo more lives")
+                print(f"The word was '{selected_word}'.")
                 break
 
         elif check_finished(hidden_word) == True:
