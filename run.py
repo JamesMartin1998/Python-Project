@@ -3,11 +3,12 @@ from pprint import pprint
 
 print("Welcome to Hangman!\nTry to guess the word by guessing individual letters inside!\n")
 
+guessed_letters = []
+
 easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar", "snake", "light", "tree"]
 medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring", "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
 hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
 
-guessed_letters = []
 
 six_lives = ("""
         ________________
@@ -208,6 +209,7 @@ def update_hidden(correct_guess, selected_word, guess_state):
     continues until there are no more occurrences of the letter in the word.
     """
     if correct_guess == None:
+        hidden_word = guess_state
         return hidden_word
     else:
         letter = correct_guess
@@ -254,8 +256,16 @@ def play_again():
     except ValueError:
         print("Incorrect value. Please try again.")
 
+# def reset_game(guesses):
+#     """
+#     Resets variables for the next game.
+#     """
+#     letters = []
+#     return
 
 def start_game():
+    # global guessed_letters 
+    # guessed_letters = []
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
     selected_word = generate_word(selected_list)
