@@ -230,6 +230,16 @@ def update_hidden(correct_guess, selected_word, guess_state):
                 return hidden
         return hidden
 
+def check_finished(guess_state):
+    """
+    Checks if there are any more missing letter left in the hidden word. If there are no missing letters, congratulates the user 
+    and returns True.
+    """
+    hidden = guess_state
+    if "-" not in hidden:
+        print("Well done you guessed the word!")
+        return True
+
 difficulty = request_difficulty()
 selected_list = (set_list(difficulty))
 selected_word = generate_word(selected_list)
@@ -252,3 +262,7 @@ while True:
         if remaining_lives == 0:
             print("No more lives")
             break
+
+    elif check_finished(hidden_word) == True:
+        break
+
