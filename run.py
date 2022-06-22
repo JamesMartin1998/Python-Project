@@ -264,8 +264,8 @@ def play_again():
 #     return
 
 def start_game():
-    # global guessed_letters 
-    # guessed_letters = []
+    global guessed_letters 
+    guessed_letters = []
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
     selected_word = generate_word(selected_list)
