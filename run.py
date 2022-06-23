@@ -1,5 +1,6 @@
 import random
-from colorama import Fore, Back, Style
+from colorama import *
+init(autoreset=True)
 
 guessed_letters = []
 
@@ -96,26 +97,26 @@ def request_difficulty():
         difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
         if difficulty == "e":
             difficulty = "easy"
-            print(Fore.RED + "\nYou selected 'Easy' difficulty.")
+            print(Fore.GREEN + "\nYou selected 'Easy' difficulty.")
         elif difficulty == "m":
             difficulty = "medium"
-            print("\nYou selected 'Medium' difficulty.")
+            print(Fore.GREEN + "\nYou selected 'Medium' difficulty.")
         elif difficulty == "h":
             difficulty = "hard"
-            print("\nYou selected 'Hard' difficulty.")
+            print(Fore.GREEN + "\nYou selected 'Hard' difficulty.")
         elif int(difficulty):
             raise TypeError(
-                print("\nIncorrect type. Please try again.")
+                print(Fore.RED + f"{difficulty} is not a letter.")
             )
         else:
             raise ValueError(
-                f"Invalid difficulty provided"
+                print(Fore.RED + "Invalid difficulty provided")
             )
     except ValueError as e:
-        print(f"{difficulty} is an invalid difficulty. Please try again.\n")
+        print(Fore.RED + f"{difficulty} is an invalid difficulty. Please try again.\n")
         request_difficulty()
     except TypeError:
-        print("Invalid type. Please try again.\n")
+        print(Fore.RED + "Invalid type. Please try again.\n")
         request_difficulty()
 
     return difficulty
@@ -159,22 +160,22 @@ def request_letter():
         guess = input("Guess one letter: ").lower()
         if guess == "":
             raise ValueError(
-                print("You didn't guess a letter")
+                print(Fore.RED + "You didn't guess a letter.")
             )
         elif guess.isalpha() == False:
             raise ValueError(
-                print(f"{guess} is not a letter")
+                print(Fore.RED + f"{guess} is not a letter")
             )
         elif len(guess) > 1:
             raise ValueError(
-                print(f"{guess} is more than one letter")
+                print(Fore.RED + f"{guess} is more than one letter")
             )
         elif guess in guessed_letters:
             raise ValueError(
-                print(f"{guess} has already been guessed")
+                print(Fore.RED + f"{guess} has already been guessed")
             )
     except ValueError: 
-        print("Error. PLease try again.")
+        print(Fore.RED + "Error. PLease try again.")
         request_letter()
     else:
         guessed_letters.append(guess)
@@ -187,10 +188,10 @@ def check_letter_in_word(letter, selected_word):
 
     if recent_guess in selected_word:
         print("")
-        print(f"{recent_guess} is correct!")
+        print(Fore.GREEN + f"{recent_guess} is correct!")
         return recent_guess
     else:
-        print("\nAhh... it's not in the word.")
+        print(Fore.RED + "\nAhh... it's not in the word.")
     
 # update_hidden function adapts on code from following link
 # https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string.
@@ -212,13 +213,11 @@ def update_hidden(correct_guess, selected_word, guess_state):
         while True:
             if letter in word:
                 index = word.find(correct_guess)
-
                 word = word.replace(correct_guess, "-", 1)
                 # print(f'inside function: {hidden}')
                 temp = list(hidden)
                 temp[index] = letter
                 hidden = "".join(temp)
-
                 print(hidden)    
             else:
                 break
@@ -233,7 +232,7 @@ def check_finished(guess_state):
     """
     hidden = guess_state
     if "-" not in hidden:
-        print("Well done you guessed the word!")
+        print(Fore.GREEN + "Well done you guessed the word!")
         return True
 
 def play_again():
@@ -241,25 +240,25 @@ def play_again():
     Once a game is over, asks the user if they want to restart the game or finish playing.
     """
     try:
-        response = input("Do you want to play again? Type'y' for 'yes' or 'n' for 'no'.")
+        response = input("\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.")
         if response.lower() == 'y':
             print("\nLet's play again!")
             start_game()
         elif response.lower() == "n":
-            print("Exiting game...")
+            print(Fore.YELLOW + "Exiting game...")
         elif response == "":
             raise ValueError(
-                print("You need to enter a value.")
+                print(Fore.RED + "You need to enter a value.")
             )
         elif int(response):
             raise TypeError(
-                print("You entered a number.")
+                print(Fore.RED + "You entered a number.")
             )
     except ValueError:
-        print("Incorrect value. Please try again.")
+        print(Fore.RED + "Incorrect value. Please try again.")
         play_again()
     except TypeError:
-        print("Incorrect type. Please try again.")
+        print(Fore.RED + "Incorrect type. Please try again.")
         play_again()
 
 def start_game():
@@ -283,11 +282,11 @@ def start_game():
         
         if correct_guess == None:
             remaining_lives -= 1
-            print(f"Remaining lives = {remaining_lives}")
+            print(Fore.RED + f"Remaining lives = {remaining_lives}")
             print(hangman[6 - remaining_lives])
             print(hidden_word)
             if remaining_lives == 0:
-                print("\nNo more lives")
+                print(Fore.RED + "\nNo more lives")
                 print(f"The word was '{selected_word}'.")
                 break
 
@@ -298,7 +297,7 @@ def start_game():
 
 
 # if __name__ == "__main__":
-#     print("Welcome to Hangman!\n\nTry to guess the word by guessing individual letters inside!\n")
+#     
 #     start_game()
-
+print(Fore.YELLOW + "Welcome to Hangman!\n\nTry to guess the word by guessing the individual letters in the word!\n")
 start_game()
