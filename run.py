@@ -1,7 +1,4 @@
 import random
-from pprint import pprint
-
-
 
 guessed_letters = []
 
@@ -95,16 +92,20 @@ def request_difficulty():
     returns the difficulty.
     """
     try:
-        difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n")
-        if difficulty == "e" or difficulty == "E":
+        difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
+        if difficulty == "e":
             difficulty = "easy"
             print("\nYou selected 'Easy' difficulty.")
-        elif difficulty == "m" or difficulty == "M":
+        elif difficulty == "m":
             difficulty = "medium"
             print("\nYou selected 'Medium' difficulty.")
-        elif difficulty == "h" or difficulty == "H":
+        elif difficulty == "h":
             difficulty = "hard"
             print("\nYou selected 'Hard' difficulty.")
+        elif int(difficulty):
+            raise TypeError(
+                print("\nIncorrect type. Please try again.")
+            )
         else:
             raise ValueError(
                 f"Invalid difficulty provided"
@@ -112,12 +113,12 @@ def request_difficulty():
     except ValueError as e:
         print(f"{difficulty} is an invalid difficulty. Please try again.\n")
         request_difficulty()
+    except TypeError:
+        print("Invalid type. Please try again.\n")
+        request_difficulty()
 
     return difficulty
         
-
-# Generate word function
-
 def set_list(difficulty):
     """
     Uses the difficulty variable value to select a list to choose a word from.
@@ -177,9 +178,6 @@ def request_letter():
     else:
         guessed_letters.append(guess)
 
-
-
-
 def check_letter_in_word(letter, selected_word):
     """
     Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list it is most recent.
@@ -193,12 +191,6 @@ def check_letter_in_word(letter, selected_word):
     else:
         print("\nAhh... it's not in the word.")
     
-
-# Decrement lives function
-    
-
-# Show current guess function
-
 # update_hidden function adapts on code from following link
 # https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string.
 def update_hidden(correct_guess, selected_word, guess_state):
@@ -209,7 +201,7 @@ def update_hidden(correct_guess, selected_word, guess_state):
     on the next loop. Hidden word converted into list and letter replaces '-' and finally converted back to a string. Loop
     continues until there are no more occurrences of the letter in the word.
     """
-    if correct_guess == None:
+    if correct_guess is None:
         hidden_word = guess_state
         return hidden_word
     else:
@@ -254,15 +246,20 @@ def play_again():
             start_game()
         elif response.lower() == "n":
             print("Exiting game...")
+        elif response == "":
+            raise ValueError(
+                print("You need to enter a value.")
+            )
+        elif int(response):
+            raise TypeError(
+                print("You entered a number.")
+            )
     except ValueError:
         print("Incorrect value. Please try again.")
-
-# def reset_game(guesses):
-#     """
-#     Resets variables for the next game.
-#     """
-#     letters = []
-#     return
+        play_again()
+    except TypeError:
+        print("Incorrect type. Please try again.")
+        play_again()
 
 def start_game():
     global guessed_letters 
@@ -298,5 +295,9 @@ def start_game():
         
     play_again()
 
-print("Welcome to Hangman!\n\nTry to guess the word by guessing individual letters inside!\n")
+
+# if __name__ == "__main__":
+#     print("Welcome to Hangman!\n\nTry to guess the word by guessing individual letters inside!\n")
+#     start_game()
+
 start_game()
