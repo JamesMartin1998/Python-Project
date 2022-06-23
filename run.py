@@ -1,4 +1,5 @@
 import random
+from colorama import Fore, Back, Style
 
 guessed_letters = []
 
@@ -95,7 +96,7 @@ def request_difficulty():
         difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
         if difficulty == "e":
             difficulty = "easy"
-            print("\nYou selected 'Easy' difficulty.")
+            print(Fore.RED + "\nYou selected 'Easy' difficulty.")
         elif difficulty == "m":
             difficulty = "medium"
             print("\nYou selected 'Medium' difficulty.")
