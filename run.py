@@ -157,7 +157,7 @@ def request_letter():
     Requests the user to input a letter as a guess and validates it.
     """
     try:
-        guess = input("Guess one letter: ").lower()
+        guess = input("Guess one letter:\n").lower()
         if guess == "":
             raise ValueError(
                 print(Fore.RED + "You didn't guess a letter.")
@@ -240,7 +240,7 @@ def play_again():
     Once a game is over, asks the user if they want to restart the game or finish playing.
     """
     try:
-        response = input("\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.")
+        response = input("\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.\n")
         if response.lower() == 'y':
             print("\nLet's play again!")
             start_game()
