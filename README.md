@@ -44,3 +44,31 @@ returns the difficulty.
     - This hidden_word variable is important as it needs to be printed to the user so they can see the length of the word they need to guess the letters for.
 
 ![Image showing show_hidden_word code](./images/show_hidden_word.png)
+
+### request_letter() function
+
+- Requests the user to input a letter as a guess and validates it.
+    - User is requested to input a single letter as a guess. The input is assigned to the guess variable and .lower method is used on the input to convert any uppercase inputs.
+    - Conditionals are used to raise a ValueError for empty inputs, non-letters, more than 1 letter and inputs already guessed.
+    - Checking for inputs already guessed was possible by the else statement appending each guess to a global list storing all of the guesses. The exception could then be raised if the input is already in the the list.
+    - Users receive feedback after each input and if the exception is raised, the function is called again so that they can input again.
+
+![Image showing request_letter code](./images/request_letter.png) 
+
+### check_letter_in_word(letter, selected_word)
+
+- Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list as it is most recent.
+    - The most recent letter guessed to by the user is passed into the function by accessing the last index of the guessed_letters list (e.g. guessed_letters[-1]). This value is stored in the recent_guess variable. The selected_word is also passed into the function.
+    - Conditionals are used to check whether the recent_guess is in the selected_word and users receive feedback about their guess.
+    - If the recent_guess is in the selected_word, the recent_guess is returned and stored in the correct guess variable when the function is called. If recent_guess isn;t in the word, the function returns None.
+
+![Image showing check_letter_in_word code](./images/check_letter_in_word.png)
+
+### update_hidden(correct_guess, selected_word, guess_state)
+
+- If there is a correct guess, will search for the position of the letter in the word. Then changes the "-" value in the hidden word to the correct letter to update it.
+    - Passes the correct_guess (either a letter or None), selected_word and guess_state (hidden word's current value e.g --e--).
+    - Using conditionals, if the correct_guess is None, the hidden word will remain unchanged. The guess_state is stored in the hidden_word and returned.
+    - Else, the correct_guess needs to be found in the word. The arguments are stored in variables. Within an infinte while loop, the .find() method is used to find the index of the correct_guess in the word and stored in the variable 'index'. The .replace() method is used to replace the letter with "-" (on the next loop iteration, the letter won't be found at that index again. Allows us to check for the same letter at another index.). The temp variable stores a list version of the hidden word. The letter value can then be assigned to temp at the correct index. The .join method joins the list to an empty string and stores in the 'hidden' variable. The loop repeats as it is possible for the letter to apear multiple times in the word. Once the letter is no longer found, the loop breaks and the hidden is returned.
+
+![Image showing check_letter_in_word code](./images/update_hidden.png)

@@ -175,14 +175,14 @@ def request_letter():
                 print(Fore.RED + f"{guess} has already been guessed")
             )
     except ValueError: 
-        print(Fore.RED + "Error. PLease try again.")
+        print(Fore.RED + "Error. Please try again.")
         request_letter()
     else:
         guessed_letters.append(guess)
 
 def check_letter_in_word(letter, selected_word):
     """
-    Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list it is most recent.
+    Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list as it is most recent.
     """
     recent_guess = letter
 
