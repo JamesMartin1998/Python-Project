@@ -262,6 +262,9 @@ def play_again():
         play_again()
 
 def start_game():
+    """
+    Calls the individual functions in the correct sequence to initiate and control the flow of the game.
+    """
     global guessed_letters 
     guessed_letters = []
     difficulty = request_difficulty()

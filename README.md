@@ -72,3 +72,29 @@ returns the difficulty.
     - Else, the correct_guess needs to be found in the word. The arguments are stored in variables. Within an infinte while loop, the .find() method is used to find the index of the correct_guess in the word and stored in the variable 'index'. The .replace() method is used to replace the letter with "-" (on the next loop iteration, the letter won't be found at that index again. Allows us to check for the same letter at another index.). The temp variable stores a list version of the hidden word. The letter value can then be assigned to temp at the correct index. The .join method joins the list to an empty string and stores in the 'hidden' variable. The loop repeats as it is possible for the letter to apear multiple times in the word. Once the letter is no longer found, the loop breaks and the hidden is returned.
 
 ![Image showing check_letter_in_word code](./images/update_hidden.png)
+
+### check_finished(guess_state)
+
+- Checks if there are any more missing letter left in the hidden word. If there are no missing letters, congratulates the user 
+    and returns True.
+    - Passes the hidden_word as an argument and stores in hidden variable.
+    - If the "-" string is not in the hidden variable, the user receives feedback to congratulate them and inform that the word has been guessed.
+    - Function returns True.
+
+![Image showing check_finished code](./images/check_finished.png)
+
+### play_again()
+
+- Once a game is over, asks the user if they want to restart the game or finish playing.
+    - Asks the user if they want to play again and to type 'y' for 'yes' and 'n' for 'no'. Input stored in response variable.
+    - Input validation tries conditionals.
+    - If the response.lower() equals 'y', the user receives feedback and the start_game function is called to restart the game. 
+    - If the response.lower() equals 'n', the user receives feedback and the game ends.
+    - Empty inputs raise a ValueError. The user receives feedback to explain the error and the play_again function is called again to ask the user for another input. 
+    - Integer inputs raise a TypeError. The user receives feedback to explain the error and the play_again function is called again to ask the user for another input.
+
+![Image showing play_again code](./images/play_again.png)
+
+### start_game()
+
+- Calls the individual functions in the correct sequence to initiate and control the flow of the game.
