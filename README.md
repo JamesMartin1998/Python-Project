@@ -106,3 +106,10 @@ returns the difficulty.
     - Outside the loop, the play_again function is called so that user has the option to restart the game.
 
 ![Image showing start_game code](./images/start_game.png)
+
+## Future Features
+
+- API / Google Sheet
+    - Instead of storing the words for the game in Python lists, the data could be stored in a Google Sheet and accessed via an API.
+- Changing the number of lives
+    - The current difficulty levels only differ by how hard it is to guess each word. Instead, each difficulty level could have differing numbers of lives.
