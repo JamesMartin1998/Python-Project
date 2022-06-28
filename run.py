@@ -270,7 +270,6 @@ def start_game():
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
     selected_word = generate_word(selected_list)
-    # print(selected_word)
     hidden_word = (show_hidden_word(selected_word))
     print("")
     print(hidden_word)
@@ -279,7 +278,6 @@ def start_game():
     while True:
         request_letter()
         correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-        # print(hidden_word)
         updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
         hidden_word = updated_hidden
         

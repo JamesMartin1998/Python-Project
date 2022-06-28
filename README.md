@@ -98,3 +98,11 @@ returns the difficulty.
 ### start_game()
 
 - Calls the individual functions in the correct sequence to initiate and control the flow of the game.
+    - Initiates variables guessed_letters and remainining_lives by assigning values directly.
+    - Initiates variables difficulty, selected_list, selected_word, hidden_word by calling their appropriate functions so they are assigned the returned values.
+    - An infinite while loop is used for the remaining functions. 
+    - Conditionals are used to check if the correct_guess is None. If True, remaining lives decrease by 1 and the user receives feedback. A deeper condition checks for if the remaining_lives are equal to zero. If true, the user receives feedback and the loop breaks.
+    - If the correct_guess isn't None, a condition checks if the check_finished function is equal to True. If True, the user receives feedback and the loop exits.
+    - Outside the loop, the play_again function is called so that user has the option to restart the game.
+
+![Image showing start_game code](./images/start_game.png)
