@@ -214,7 +214,6 @@ def update_hidden(correct_guess, selected_word, guess_state):
             if letter in word:
                 index = word.find(correct_guess)
                 word = word.replace(correct_guess, "-", 1)
-                # print(f'inside function: {hidden}')
                 temp = list(hidden)
                 temp[index] = letter
                 hidden = "".join(temp)
@@ -300,5 +299,5 @@ def start_game():
 # if __name__ == "__main__":
 #     
 #     start_game()
-print(Fore.YELLOW + "Welcome to Hangman!\n\nTry to guess the word by guessing the individual letters in the word!\n")
+print(Fore.YELLOW + "Welcome to Hangman!\n\nTry to guess the word by guessing its individual letters.\nYou have 6 lives. Each time you guess incorrectly, you lose 1 life.\nThe game ends when you guess all the lettes in the word or lose all of your lives.")
 start_game()

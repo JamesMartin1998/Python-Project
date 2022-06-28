@@ -113,3 +113,13 @@ returns the difficulty.
     - Instead of storing the words for the game in Python lists, the data could be stored in a Google Sheet and accessed via an API.
 - Changing the number of lives
     - The current difficulty levels only differ by how hard it is to guess each word. Instead, each difficulty level could have differing numbers of lives.
+
+## Testing
+
+### High Level Test Cases
+
+User Stories:
+- As a user, I want to understand the purpose of the game.
+- As a user, I want to have instructions so I can understand how to play the game.
+- As a user, I want to be able to choose different difficulties.
+- As a user, I want confirmation 
