@@ -14,6 +14,8 @@ returns the difficulty.
     - If the input was an integer, a TypeError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a diffculty.
     - If the input isn't equal to 'e', 'm' or 'h', a ValueError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a diffculty.
 
+![Image showing request_diffculty code](./images/request_difficulty.png)
+
 ### set_list(difficulty) function
 
 - Uses the difficulty variable value as an argument to select a list to choose a word from.
@@ -21,3 +23,24 @@ returns the difficulty.
     - The difficulty argument is stored in a 'level' variable. 
     - Conditionals are used to check value of 'level' and then assign either the 'easy_words', 'medium_words', 'hard_words' list to the variable 'selected_list'.
     - The selected_list variable is returned.
+
+![Image showing set_list code](./images/set_list.png)
+
+### generate_word(word_list) function
+
+- Takes the selected list as a parameter and randomly selects one word from the list.
+    - The selected_list variable is passed into the function.
+    - The random.choice method is used to randomly select one word from the list and store it in the selected_word variable.
+    - The selected_word variable is returned.
+
+![Image showing generate_word code](./images/generate_word.png)
+
+### show_hidden_word(selected_word) function
+
+- Converts the randomly selected word into a string of equal length but with hidden letters.
+    - The selected_word variable is passed into the function.
+    - The len function is used to calculate the length of the selected_word. This is multiplied with the string "-" to create a string of dashes with equal length to the selected_word. This string is stored in the hidden_word variable.
+    - The hidden_word variable is returned.
+    - This hidden_word variable is important as it needs to be printed to the user so they can see the length of the word they need to guess the letters for.
+
+![Image showing show_hidden_word code](./images/show_hidden_word.png)
