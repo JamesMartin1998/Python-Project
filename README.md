@@ -175,10 +175,13 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 ### Run Locally
 
 This project can be run locally by:
-    - Opening the project repository.
-    - Opening the dropdown on the 'code' button.
-    - Downloading the zip file.
-    - Extracting the files from the zip file into a new folder on your computer.
-    - Opening the folder in an IDE of your choice.
-    - Installing Colorama by typing "pip install colorama" in the terminal.
+- Opening the project repository.
+- Opening the dropdown on the 'code' button.
+- Downloading the zip file.
+- Extracting the files from the zip file into a new folder on your computer.
+- Opening the folder in an IDE of your choice.
+- Installing Colorama by typing "pip install colorama" in the terminal.
+- Typing "python run.py" in the terminal.
+
+
 
