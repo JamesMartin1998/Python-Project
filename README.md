@@ -149,3 +149,36 @@ User Stories:
 ### Remaining Bugs
 
 - No bugs remaining.
+
+## Deployment
+
+### Heroku
+
+Throughout the project, version control was used by committing and pushing the code to GitHub.
+The GitHub repository can be found here: https://github.com/JamesMartin1998/Python-Project
+
+- This project was deployed to Heroku by:
+    - Within Gitpod, adding the dependencies to the requirements file by typing 'pip3 freeze > requirements.txt' in the terminal.
+    - Committing and pushing the code to GitHub.
+    - On the Heroku website, clicking 'Create New App'.
+    - Setting the name and region and pressing 'Create App'.
+    - Clicking the 'Settings' tab.
+    - Setting a config var: key = PORT, value = 8000. Press 'add'.
+    - Clicking 'Add Buildpack', 'Python', 'Save Changes'.
+    - Click the 'Deploy' tab.
+    - Click 'Connect to GitHub', search for repository, click 'Connect'.
+    - Enable Manual Deploy. Check for successful message.
+    - Enable Automatic Deploys.
+
+The live site can be found here: https://project3-hangman.herokuapp.com/
+
+### Run Locally
+
+This project can be run locally by:
+    - Opening the project repository.
+    - Opening the dropdown on the 'code' button.
+    - Downloading the zip file.
+    - Extracting the files from the zip file into a new folder on your computer.
+    - Opening the folder in an IDE of your choice.
+    - Installing Colorama by typing "pip install colorama" in the terminal.
+
