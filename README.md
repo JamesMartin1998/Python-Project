@@ -118,6 +118,8 @@ returns the difficulty.
 
 ### High Level Test Cases
 
+![Image showing the test cases](./images/test_cases.png)
+
 User Stories:
 - As a user, I want to understand the purpose of the game - TC001, TC002
 - As a user, I want to have instructions so I can understand how to play the game - TC001
