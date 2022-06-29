@@ -119,7 +119,11 @@ returns the difficulty.
 ### High Level Test Cases
 
 User Stories:
-- As a user, I want to understand the purpose of the game.
-- As a user, I want to have instructions so I can understand how to play the game.
-- As a user, I want to be able to choose different difficulties.
-- As a user, I want confirmation 
+- As a user, I want to understand the purpose of the game - TC001, TC002
+- As a user, I want to have instructions so I can understand how to play the game - TC001
+- As a user, I want to be able to choose different difficulties - TC003, TC004
+- As a user, I want to know if my guess was successful - TC007, TC008
+- As a user, I want to know how many lives I have left and see the hangman drawing update - TC012, TC013
+- As a user, I want to know how many letters are in the word and how many to guess are remaining - TC006, TC009
+- As a user, I want to know the result of the game - TC010, TC013, TC014
+- As a user, I want to be able to play multiple games - TC011
