@@ -129,3 +129,6 @@ User Stories:
 - As a user, I want to know how many letters are in the word and how many to guess are remaining - TC006, TC009
 - As a user, I want to know the result of the game - TC010, TC013, TC014
 - As a user, I want to be able to play multiple games - TC011
+
+### PEP8
+- Code passes through PEP8 linter with no problems.

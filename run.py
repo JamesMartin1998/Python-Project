@@ -5,8 +5,9 @@ init(autoreset=True)
 guessed_letters = []
 
 easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow",
-              "banana", "snowflake", "bug", "book", "jar", "snake", "light", "tree"]
-medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring",
+              "banana", "snowflake", "bug", "book", "jar", "snake", "light", 
+              "tree"]
+medium_words = ["backbone", "whistle", "palace", "baseball", "computer","password", "spring",
                 "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
 hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox",
               "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
@@ -15,10 +16,10 @@ hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury"
 six_lives = ("""
         ________________
         |       |
-        |       
-        |     
-        |       
-        |      
+        |
+        |
+        |
+        |
         |_______________
         """)
 
@@ -27,9 +28,9 @@ five_lives = ("""
         ________________
         |       |
         |       O
-        |      
-        |       
-        |      
+        |
+        |
+        |
         |_______________
         """)
 
@@ -38,9 +39,9 @@ four_lives = ("""
         ________________
         |       |
         |       O
-        |       | 
         |       |
-        |      
+        |       |
+        |
         |_______________
         """)
 
@@ -49,9 +50,9 @@ three_lives = ("""
         ________________
         |       |
         |       O
-        |     / | 
+        |     / |
         |       |
-        |       
+        |
         |_______________
         """)
 
@@ -62,7 +63,7 @@ two_lives = ("""
         |       O
         |     / | \\
         |       |
-        |      
+        |
         |_______________
         """)
 
@@ -73,7 +74,7 @@ one_life = ("""
         |       O
         |     / | \\
         |       |
-        |      / 
+        |      /
         |_______________
         """)
 
@@ -242,7 +243,7 @@ def update_hidden(correct_guess, selected_word, guess_state):
 
 def check_finished(guess_state):
     """
-    Checks if there are any more missing letter left in the hidden word. If there are no missing letters, congratulates the user 
+    Checks if there are any more missing letter left in the hidden word. If there are no missing letters, congratulates the user
     and returns True.
     """
     hidden = guess_state
