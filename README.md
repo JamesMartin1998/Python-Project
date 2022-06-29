@@ -118,6 +118,8 @@ returns the difficulty.
 
 ### High Level Test Cases
 
+Local and Heroku terminals have been used for testing:
+
 ![Image showing the test cases](./images/test_cases.png)
 
 User Stories:
@@ -132,3 +134,18 @@ User Stories:
 
 ### PEP8
 - Code passes through PEP8 linter with no problems.
+
+## Bugs
+
+### Solved Bugs
+
+- An early error I encountered was when the hidden word would only update with most recent guess. This was fixed by storing the reurned value in a variable and passing the variable multiple times in a loop.
+
+![Image showing bug](./images/letter_error.png)
+
+- For words with multiple occurrences of a letter, only the first occurrences was found. This was fixed by using a while loop. When the letter was found, it was removed and the word would be searched again until the letter is no longer found.
+- A difficult error to solve occurred when correct guess followed an incorrect guess. I found that the update_hidden function, if the correct_guess was equal to None, the hidden_word wasn't being returned from the function. This caused the hidden_word value to equal None and cause an error when it was passed into the update_hidden function later. Returning the hidden_word fixed the bug. 
+
+### Remaining Bugs
+
+- No bugs remaining.
