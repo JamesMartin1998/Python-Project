@@ -4,9 +4,12 @@ init(autoreset=True)
 
 guessed_letters = []
 
-easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow", "banana", "snowflake", "bug", "book", "jar", "snake", "light", "tree"]
-medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring", "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
-hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
+easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow",
+              "banana", "snowflake", "bug", "book", "jar", "snake", "light", "tree"]
+medium_words = ["backbone", "whistle", "palace", "baseball", "computer", "password", "spring",
+                "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
+hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox",
+              "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
 
 
 six_lives = ("""
@@ -84,9 +87,12 @@ no_lives = ("""
         |_______________
         """)
 
-hangman = [six_lives, five_lives, four_lives, three_lives, two_lives, one_life, no_lives]
+hangman = [six_lives, five_lives, four_lives,
+           three_lives, two_lives, one_life, no_lives]
 
 # Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
+
+
 def request_difficulty():
     """
     Requests the user to select a difficulty by inputting a string input. Tries to set the diffculty variable but if the wrong
@@ -94,7 +100,8 @@ def request_difficulty():
     returns the difficulty.
     """
     try:
-        difficulty = input("Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
+        difficulty = input(
+            "Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
         if difficulty == "e":
             difficulty = "easy"
             print(Fore.GREEN + "\nYou selected 'Easy' difficulty.")
@@ -113,14 +120,16 @@ def request_difficulty():
                 print(Fore.RED + "Invalid difficulty provided")
             )
     except ValueError as e:
-        print(Fore.RED + f"{difficulty} is an invalid difficulty. Please try again.\n")
+        print(
+            Fore.RED + f"{difficulty} is an invalid difficulty. Please try again.\n")
         request_difficulty()
     except TypeError:
         print(Fore.RED + "Invalid type. Please try again.\n")
         request_difficulty()
 
     return difficulty
-        
+
+
 def set_list(difficulty):
     """
     Uses the difficulty variable value to select a list to choose a word from.
@@ -135,7 +144,8 @@ def set_list(difficulty):
         selected_list = hard_words
 
     return selected_list
-    
+
+
 def generate_word(word_list):
     """
     Takes the selected list as a parameter and randomly selects one word from the list.
@@ -143,14 +153,16 @@ def generate_word(word_list):
     selected_word = random.choice(word_list)
 
     return selected_word
-    
+
+
 def show_hidden_word(selected_word):
     """
     Converts the randomly selected word into a string of equal length but with hidden letters.
     """
     hidden_word = '-' * (len(selected_word))
-    
+
     return hidden_word
+
 
 def request_letter():
     """
@@ -162,7 +174,7 @@ def request_letter():
             raise ValueError(
                 print(Fore.RED + "You didn't guess a letter.")
             )
-        elif guess.isalpha() == False:
+        elif guess.isalpha() is False:
             raise ValueError(
                 print(Fore.RED + f"{guess} is not a letter")
             )
@@ -174,11 +186,12 @@ def request_letter():
             raise ValueError(
                 print(Fore.RED + f"{guess} has already been guessed")
             )
-    except ValueError: 
+    except ValueError:
         print(Fore.RED + "Error. Please try again.")
         request_letter()
     else:
         guessed_letters.append(guess)
+
 
 def check_letter_in_word(letter, selected_word):
     """
@@ -192,9 +205,11 @@ def check_letter_in_word(letter, selected_word):
         return recent_guess
     else:
         print(Fore.RED + "\nAhh... it's not in the word.")
-    
+
 # update_hidden function adapts on code from following link
 # https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string.
+
+
 def update_hidden(correct_guess, selected_word, guess_state):
     """
     If correct guess == None, it means the letter isn't in the word.
@@ -217,12 +232,13 @@ def update_hidden(correct_guess, selected_word, guess_state):
                 temp = list(hidden)
                 temp[index] = letter
                 hidden = "".join(temp)
-                print(hidden)    
+                print(hidden)
             else:
                 break
                 print(hidden)
                 return hidden
         return hidden
+
 
 def check_finished(guess_state):
     """
@@ -234,12 +250,14 @@ def check_finished(guess_state):
         print(Fore.GREEN + "Well done you guessed the word!")
         return True
 
+
 def play_again():
     """
     Once a game is over, asks the user if they want to restart the game or finish playing.
     """
     try:
-        response = input("\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.\n")
+        response = input(
+            "\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.\n")
         if response.lower() == 'y':
             print("\nLet's play again!")
             start_game()
@@ -260,11 +278,12 @@ def play_again():
         print(Fore.RED + "Incorrect type. Please try again.")
         play_again()
 
+
 def start_game():
     """
     Calls the individual functions in the correct sequence to initiate and control the flow of the game.
     """
-    global guessed_letters 
+    global guessed_letters
     guessed_letters = []
     difficulty = request_difficulty()
     selected_list = (set_list(difficulty))
@@ -276,11 +295,13 @@ def start_game():
 
     while True:
         request_letter()
-        correct_guess = check_letter_in_word(guessed_letters[-1], selected_word)
-        updated_hidden = update_hidden(correct_guess, selected_word, hidden_word)
+        correct_guess = check_letter_in_word(
+            guessed_letters[-1], selected_word)
+        updated_hidden = update_hidden(
+            correct_guess, selected_word, hidden_word)
         hidden_word = updated_hidden
-        
-        if correct_guess == None:
+
+        if correct_guess is None:
             remaining_lives -= 1
             print(Fore.RED + f"Remaining lives = {remaining_lives}")
             print(hangman[6 - remaining_lives])
@@ -290,14 +311,11 @@ def start_game():
                 print(f"The word was '{selected_word}'.")
                 break
 
-        elif check_finished(hidden_word) == True:
+        elif check_finished(hidden_word) is True:
             break
-        
+
     play_again()
 
 
-# if __name__ == "__main__":
-#     
-#     start_game()
 print(Fore.YELLOW + "Welcome to Hangman!\n\nTry to guess the word by guessing its individual letters.\nYou have 6 lives. Each time you guess incorrectly, you lose 1 life.\nThe game ends when you guess all the lettes in the word or lose all of your lives.")
 start_game()
