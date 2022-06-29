@@ -93,7 +93,6 @@ hangman = [six_lives, five_lives, four_lives,
 
 # Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
 
-
 def request_difficulty():
     """
     Requests the user to select a difficulty by inputting a string input. Tries to set the diffculty variable but if the wrong

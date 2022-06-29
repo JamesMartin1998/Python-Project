@@ -174,14 +174,23 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 
 ### Run Locally
 
-This project can be run locally by:
-- Opening the project repository.
-- Opening the dropdown on the 'code' button.
-- Downloading the zip file.
-- Extracting the files from the zip file into a new folder on your computer.
-- Opening the folder in an IDE of your choice.
-- Installing Colorama by typing "pip install colorama" in the terminal.
-- Typing "python run.py" in the terminal.
+- This project can be run locally by:
+    - Opening the project repository.
+    - Opening the dropdown on the 'code' button.
+    - Downloading the zip file.
+    - Extracting the files from the zip file into a new folder on your computer.
+    - Opening the folder in an IDE of your choice.
+    - Installing Colorama by typing "pip install colorama" in the terminal.
+    - Typing "python run.py" in the terminal.
+
+## Credits
+
+- Colour was produced in the terminal by installing and importing the Colorama library.
+- Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
+-  update_hidden function adapts on code from following link: https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string
+- Thanks to Oisin, a tutor a Code Institute for helping me to solve the error where a correct guess after an incorrect guess caused the program to crash.
+- Thanks to my mentor, Ronan, for his support during the project.
+
 
 
 
