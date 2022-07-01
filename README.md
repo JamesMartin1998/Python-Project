@@ -228,7 +228,7 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
     - Downloading the zip file.
     - Extracting the files from the zip file into a new folder on your computer.
     - Opening the folder in an IDE of your choice.
-    - Installing Colorama by typing "pip install colorama" in the terminal.
+    - Type "pip install requirements.txt" or "pip install colorama" in the terminal to install Colorama.
     - Typing "python run.py" in the terminal.
 
 - Cloning the Repository:
@@ -238,6 +238,7 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
     - Opening an IDE of your choice (must have Git support or relevant git extension).
     - Open the terminal and create a directory to store the repository.
     - Type "git clone https://github.com/JamesMartin1998/Python-Project.git" and press enter in the terminal.
+    - Type "pip install requirements.txt" or "pip install colorama" in the terminal to install Colorama.
 
 ## Credits
 
