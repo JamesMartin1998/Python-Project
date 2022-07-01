@@ -145,6 +145,8 @@ Full results can be found here: https://github.com/JamesMartin1998/Python-Projec
 ### PEP8
 - Code passes through PEP8 linter with no problems.
 
+![Image showing PEP8](./images/pep8.png)
+
 ## Bugs
 
 ### Solved Bugs

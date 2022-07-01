@@ -5,12 +5,14 @@ init(autoreset=True)
 guessed_letters = []
 
 easy_words = ["cat", "sun", "cup", "ghost", "flower", "pie", "cow",
-              "banana", "snowflake", "bug", "book", "jar", "snake", "light", 
+              "banana", "snowflake", "bug", "book", "jar", "snake", "light",
               "tree"]
-medium_words = ["backbone", "whistle", "palace", "baseball", "computer","password", "spring",
-                "toast", "outside", "photograph", "circus", "battery", "bicycle", "music", "pirate"]
-hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise", "injury", "jukebox",
-              "kiosk", "luxury", "matrix", "oxygen", "queue", "rhythm", "transcript", "xylophone"]
+medium_words = ["backbone", "whistle", "palace", "baseball", "computer",
+                "password", "spring", "toast", "outside", "photograph",
+                "circus", "battery", "bicycle", "music", "pirate"]
+hard_words = ["avenue", "buffalo", "dwarves", "espionage", "galvanise",
+              "injury", "jukebox", "kiosk", "luxury", "matrix", "oxygen",
+              "queue", "rhythm", "transcript", "xylophone"]
 
 
 six_lives = ("""
@@ -91,20 +93,23 @@ no_lives = ("""
 hangman = [six_lives, five_lives, four_lives,
            three_lives, two_lives, one_life, no_lives]
 
-# Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
+# Request diffculty function adapts from the validate_data function used in
+# Code Institute's Love Sandwiches project
+
 
 def request_difficulty():
     """
-    Requests the user to select a difficulty by inputting a string input. Tries to set the diffculty variable but if the wrong
-    input is provided, a ValueError is raised and the user can try again. Once the user inputs the correct string, the function
-    returns the difficulty.
+    Requests the user to select a difficulty by inputting a string input.
+    Tries to set the diffculty variable but if the wrong input is provided,
+    a ValueError is raised and the user can try again. Once the user inputs
+    the correct string, the function returns the difficulty.
     """
     try:
         difficulty = input(
             """Select difficulty...
-            Type 'e' for easy
-            Type 'm' for Medium
-            Type 'h' for Hard\n""").lower()
+Type 'e' for Easy
+Type 'm' for Medium
+Type 'h' for Hard\n""").lower()
         if difficulty == "e":
             difficulty = "easy"
             print(Fore.GREEN + "\nYou selected 'Easy' difficulty.")
@@ -123,8 +128,8 @@ def request_difficulty():
                 print(Fore.RED + "Invalid difficulty provided")
             )
     except ValueError as e:
-        print(
-            Fore.RED + f"{difficulty} is an invalid difficulty. Please try again.\n")
+        print(Fore.RED + f"""{difficulty} is an invalid difficulty.
+Please try again.\n""")
         request_difficulty()
     except TypeError:
         print(Fore.RED + "Invalid type. Please try again.\n")
@@ -151,7 +156,8 @@ def set_list(difficulty):
 
 def generate_word(word_list):
     """
-    Takes the selected list as a parameter and randomly selects one word from the list.
+    Takes the selected list as a parameter and randomly selects one word from
+    the list.
     """
     selected_word = random.choice(word_list)
 
@@ -160,7 +166,8 @@ def generate_word(word_list):
 
 def show_hidden_word(selected_word):
     """
-    Converts the randomly selected word into a string of equal length but with hidden letters.
+    Converts the randomly selected word into a string of equal length but with
+    hidden letters.
     """
     hidden_word = '-' * (len(selected_word))
 
@@ -198,7 +205,8 @@ def request_letter():
 
 def check_letter_in_word(letter, selected_word):
     """
-    Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list as it is most recent.
+    Will check if the guessed letter is in the selected word. Will pass last
+    item of the guessed_letters list as it is most recent.
     """
     recent_guess = letter
 
@@ -247,7 +255,8 @@ def update_hidden(correct_guess, selected_word, guess_state):
 
 def check_finished(guess_state):
     """
-    Checks if there are any more missing letter left in the hidden word. If there are no missing letters, congratulates the user
+    Checks if there are any more missing letter left in the hidden word. If
+    there are no missing letters, congratulates the user
     and returns True.
     """
     hidden = guess_state
@@ -258,11 +267,13 @@ def check_finished(guess_state):
 
 def play_again():
     """
-    Once a game is over, asks the user if they want to restart the game or finish playing.
+    Once a game is over, asks the user if they want to restart the game or
+    finish playing.
     """
     try:
         response = input(
-            "\nDo you want to play again? Type'y' for 'yes' or 'n' for 'no'.\n")
+            """\nDo you want to play again?
+Type'y' for 'yes' or 'n' for 'no'.\n""")
         if response.lower() == 'y':
             print("\nLet's play again!")
             start_game()
@@ -286,7 +297,8 @@ def play_again():
 
 def start_game():
     """
-    Calls the individual functions in the correct sequence to initiate and control the flow of the game.
+    Calls the individual functions in the correct sequence to initiate and
+    control the flow of the game.
     """
     global guessed_letters
     guessed_letters = []
@@ -322,5 +334,12 @@ def start_game():
     play_again()
 
 
-print(Fore.YELLOW + "Welcome to Hangman!\n\nTry to guess the word by guessing its individual letters.\nYou have 6 lives. Each time you guess incorrectly, you lose 1 life.\nThe game ends when you guess all the lettes in the word or lose all of your lives.")
+print(Fore.YELLOW + """Welcome to Hangman!
+
+Try to guess the word by guessing its individual letters.
+You have 6 lives. Each time you guess incorrectly, you lose 1 life.
+The game ends when you guess all the letters in the word or lose all of your
+lives.
+
+Remember to press Enter after typing your letter!""")
 start_game()
