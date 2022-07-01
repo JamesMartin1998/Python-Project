@@ -222,14 +222,22 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 
 ### Run Locally
 
-- This project can be run locally by:
-    - Opening the project repository.
+- Manually Downloading the Repository:
+    - Opening the project repository at https://github.com/JamesMartin1998/Python-Project.
     - Opening the dropdown on the 'code' button.
     - Downloading the zip file.
     - Extracting the files from the zip file into a new folder on your computer.
     - Opening the folder in an IDE of your choice.
     - Installing Colorama by typing "pip install colorama" in the terminal.
     - Typing "python run.py" in the terminal.
+
+- Cloning the Repository:
+    - Opening the project repository at https://github.com/JamesMartin1998/Python-Project.
+    - Opening the dropdown on the 'code' button.
+    - Copying the link under the HTTPS heading (https://github.com/JamesMartin1998/Python-Project.git).
+    - Opening an IDE of your choice (must have Git support or relevant git extension).
+    - Open the terminal and create a directory to store the repository.
+    - Type "git clone https://github.com/JamesMartin1998/Python-Project.git" and press enter in the terminal.
 
 ## Credits
 
