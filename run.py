@@ -101,7 +101,10 @@ def request_difficulty():
     """
     try:
         difficulty = input(
-            "Select difficulty...\nType 'e' for easy\nType 'm' for Medium\nType 'h' for Hard\n").lower()
+            """Select difficulty...
+            Type 'e' for easy
+            Type 'm' for Medium
+            Type 'h' for Hard\n""").lower()
         if difficulty == "e":
             difficulty = "easy"
             print(Fore.GREEN + "\nYou selected 'Easy' difficulty.")
@@ -214,8 +217,10 @@ def update_hidden(correct_guess, selected_word, guess_state):
     """
     If correct guess == None, it means the letter isn't in the word.
 
-    Else finds the first occurence index of the letter in the selected word. Then replaces the letter so it can't be found again
-    on the next loop. Hidden word converted into list and letter replaces '-' and finally converted back to a string. Loop
+    Else finds the first occurence index of the letter in the selected word.
+    Then replaces the letter so it can't be found again
+    on the next loop. Hidden word converted into list and letter replaces '-'
+    and finally converted back to a string. Loop
     continues until there are no more occurrences of the letter in the word.
     """
     if correct_guess is None:
