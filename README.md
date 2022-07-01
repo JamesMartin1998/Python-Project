@@ -3,6 +3,10 @@ This hangman game replicates the traditional "pen and paper" game, but instead w
 
 The target audience for this project would include fans of the traditional hangman game that perhaps want to try a virtual version of the game, or people that have no playing partner so rely on playing individually against a computer. Users can play for fun, but also have the possibility of challenging themselves with the hard difficulty.
 
+## Planning
+
+![Image showing lucid chart](./images/plan.png)
+
 ## Features
 ### request_difficulty() function
 
@@ -132,6 +136,10 @@ User Stories:
 - As a user, I want to know the result of the game - TC010, TC013, TC014
 - As a user, I want to be able to play multiple games - TC011
 
+### High Level Test Case Results
+
+![Image showing the test case results](./images/results.png)
+
 ### PEP8
 - Code passes through PEP8 linter with no problems.
 
@@ -190,6 +198,7 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 -  update_hidden function adapts on code from following link: https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string
 - Thanks to Oisin, a tutor a Code Institute for helping me to solve the error where a correct guess after an incorrect guess caused the program to crash.
 - Thanks to my mentor, Ronan, for his support during the project.
+- Code Institute provided the template including the terminal for deployment.
 
 
 
