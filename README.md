@@ -5,9 +5,29 @@ The target audience for this project would include fans of the traditional hangm
 
 ## Planning
 
+This chart shows the initial logic needed before developing the project.
+
 ![Image showing lucid chart](./images/plan.png)
 
 ## Features
+
+### Welcome and Rules
+
+- Greets users to the game.
+- Title clearly shows the purpose of the game.
+- Instructions explain how to play the game and how a game can end.
+
+![Image showing greeting and rules](./images/welcome.png)
+
+### Colorama
+
+- Color consistency helps the user understand and see what's happening more clearly.
+    - Yellow: start/end game text.
+    - Green: Positive messages (e.g. Correct guesses).
+    - Red: Negative messages (e.g. Incorrect guesses, errors).
+
+![Image showing Colorama](./images/colorama.png)
+
 ### request_difficulty() function
 
 - Requests the user to select a difficulty by inputting a string input. Tries to set the diffculty variable but if the wrong
@@ -19,6 +39,8 @@ returns the difficulty.
     - If the input isn't equal to 'e', 'm' or 'h', a ValueError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a diffculty.
 
 ![Image showing request_diffculty code](./images/request_difficulty.png)
+
+![Image showing the difficulty input](./images/difficulty.png)
 
 ### set_list(difficulty) function
 
@@ -49,6 +71,8 @@ returns the difficulty.
 
 ![Image showing show_hidden_word code](./images/show_hidden_word.png)
 
+![Image showing hidden word in terminal](./images/hidden_word.png)
+
 ### request_letter() function
 
 - Requests the user to input a letter as a guess and validates it.
@@ -57,7 +81,9 @@ returns the difficulty.
     - Checking for inputs already guessed was possible by the else statement appending each guess to a global list storing all of the guesses. The exception could then be raised if the input is already in the the list.
     - Users receive feedback after each input and if the exception is raised, the function is called again so that they can input again.
 
-![Image showing request_letter code](./images/request_letter.png) 
+![Image showing request_letter code](./images/request_letter.png)
+
+![Image showing request_letter code](./images/guess.png)
 
 ### check_letter_in_word(letter, selected_word)
 
@@ -87,6 +113,8 @@ returns the difficulty.
 
 ![Image showing check_finished code](./images/check_finished.png)
 
+![Image showing finished word](./images/finished.png)
+
 ### play_again()
 
 - Once a game is over, asks the user if they want to restart the game or finish playing.
@@ -98,6 +126,8 @@ returns the difficulty.
     - Integer inputs raise a TypeError. The user receives feedback to explain the error and the play_again function is called again to ask the user for another input.
 
 ![Image showing play_again code](./images/play_again.png)
+
+![Image showing play_again code](./images/restart.png)
 
 ### start_game()
 
@@ -117,6 +147,12 @@ returns the difficulty.
     - Instead of storing the words for the game in Python lists, the data could be stored in a Google Sheet and accessed via an API.
 - Changing the number of lives
     - The current difficulty levels only differ by how hard it is to guess each word. Instead, each difficulty level could have differing numbers of lives.
+
+## Data Model
+
+- Words generated for the hangman game are stored in three separate lists (easy_words, medium_words and hard_words).
+- Hangman drawings are stored in the hangman list.
+- Guessed letters are appended to the guessed_letters list.
 
 ## Testing
 
@@ -203,7 +239,4 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 - Thanks to Oisin, a tutor a Code Institute for helping me to solve the error where a correct guess after an incorrect guess caused the program to crash.
 - Thanks to my mentor, Ronan, for his support during the project.
 - Code Institute provided the template including the terminal for deployment.
-
-
-
-
+- Planning chart made at Lucidchart.com
