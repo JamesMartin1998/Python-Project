@@ -7,7 +7,7 @@ The target audience for this project would include fans of the traditional hangm
 
 This chart shows the initial logic needed before developing the project.
 
-![Image showing lucid chart](./images/plan.png)
+![Image showing lucid chart](./images/lucidchart.png)
 
 ## Features
 
