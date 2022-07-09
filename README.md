@@ -33,10 +33,10 @@ This chart shows the initial logic needed before developing the project.
 - Requests the user to select a difficulty by inputting a string input. Tries to set the diffculty variable but if the wrong
 input is provided, a ValueError is raised and the user can try again. Once the user inputs the correct string, the function
 returns the difficulty.
-    - User is requested to input 'e' for easy, 'm' for medium, or 'h' for hard diffculty. The input is assigned to the difficulty variable and .lower method is used on the input to convert any uppercase inputs.
+    - User is requested to input 'e' for easy, 'm' for medium, or 'h' for hard diffculty. The input is assigned to the difficulty variable and the .lower method is used on the input to convert any uppercase inputs.
     - Input validation is used to try and set the value of the diffculty variable from 'e', 'm' or 'h' to 'easy', 'medium', or 'hard'. The difficulty is returned if there is no exception raised.
-    - If the input was an integer, a TypeError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a diffculty.
-    - If the input isn't equal to 'e', 'm' or 'h', a ValueError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a diffculty.
+    - If the input was an integer, a TypeError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a difficulty.
+    - If the input isn't equal to 'e', 'm' or 'h', a ValueError is raised and the user receives feedback to explain the error. The request_difficulty function is called again so the user has another opportunity to select a difficulty.
 
 ![Image showing request_diffculty code](./images/request_difficulty.png)
 
@@ -88,9 +88,9 @@ returns the difficulty.
 ### check_letter_in_word(letter, selected_word)
 
 - Will check if the guessed letter is in the selected word. Will pass last item of the guessed_letters list as it is most recent.
-    - The most recent letter guessed to by the user is passed into the function by accessing the last index of the guessed_letters list (e.g. guessed_letters[-1]). This value is stored in the recent_guess variable. The selected_word is also passed into the function.
+    - The most recent letter guessed by the user is passed into the function by accessing the last index of the guessed_letters list (e.g. guessed_letters[-1]). This value is stored in the recent_guess variable. The selected_word is also passed into the function.
     - Conditionals are used to check whether the recent_guess is in the selected_word and users receive feedback about their guess.
-    - If the recent_guess is in the selected_word, the recent_guess is returned and stored in the correct guess variable when the function is called. If recent_guess isn;t in the word, the function returns None.
+    - If the recent_guess is in the selected_word, the recent_guess is returned and stored in the correct guess variable when the function is called. If recent_guess isn't in the word, the function returns None.
 
 ![Image showing check_letter_in_word code](./images/check_letter_in_word.png)
 
@@ -99,7 +99,7 @@ returns the difficulty.
 - If there is a correct guess, will search for the position of the letter in the word. Then changes the "-" value in the hidden word to the correct letter to update it.
     - Passes the correct_guess (either a letter or None), selected_word and guess_state (hidden word's current value e.g --e--).
     - Using conditionals, if the correct_guess is None, the hidden word will remain unchanged. The guess_state is stored in the hidden_word and returned.
-    - Else, the correct_guess needs to be found in the word. The arguments are stored in variables. Within an infinte while loop, the .find() method is used to find the index of the correct_guess in the word and stored in the variable 'index'. The .replace() method is used to replace the letter with "-" (on the next loop iteration, the letter won't be found at that index again. Allows us to check for the same letter at another index.). The temp variable stores a list version of the hidden word. The letter value can then be assigned to temp at the correct index. The .join method joins the list to an empty string and stores in the 'hidden' variable. The loop repeats as it is possible for the letter to apear multiple times in the word. Once the letter is no longer found, the loop breaks and the hidden is returned.
+    - Else, the correct_guess needs to be found in the word. The arguments are stored in variables. Within an infinte while loop, the .find method is used to find the index of the correct_guess in the word and stored in the variable 'index'. The .replace method is used to replace the letter with "-" (on the next loop iteration, the letter won't be found at that index again. Allows us to check for the same letter at another index.). The temp variable stores a list version of the hidden word. The letter value can then be assigned to temp at the correct index. The .join method joins the list to an empty string and stores in the 'hidden' variable. The loop repeats as it is possible for the letter to appear multiple times in the word. Once the letter is no longer found, the loop breaks and the hidden is returned.
 
 ![Image showing check_letter_in_word code](./images/update_hidden.png)
 
@@ -187,12 +187,12 @@ Full results can be found here: https://github.com/JamesMartin1998/Python-Projec
 
 ### Solved Bugs
 
-- An early error I encountered was when the hidden word would only update with most recent guess. This was fixed by storing the reurned value in a variable and passing the variable multiple times in a loop.
+- An early error I encountered was when the hidden word would only update with most recent guess. This was fixed by storing the returned value in a variable and passing the variable multiple times in a loop.
 
 ![Image showing bug](./images/letter_error.png)
 
-- For words with multiple occurrences of a letter, only the first occurrences was found. This was fixed by using a while loop. When the letter was found, it was removed and the word would be searched again until the letter is no longer found.
-- A difficult error to solve occurred when correct guess followed an incorrect guess. I found that the update_hidden function, if the correct_guess was equal to None, the hidden_word wasn't being returned from the function. This caused the hidden_word value to equal None and cause an error when it was passed into the update_hidden function later. Returning the hidden_word fixed the bug. 
+- For words with multiple occurrences of a letter, only the first occurrence was found. This was fixed by using a while loop. When the letter was found, it was removed and the word would be searched again until the letter is no longer found.
+- A difficult error to solve occurred when a correct guess followed an incorrect guess. I found that in the update_hidden function, if the correct_guess was equal to None, the hidden_word wasn't being returned from the function. This caused the hidden_word value to equal None and cause an error when it was passed into the update_hidden function later. Returning the hidden_word fixed the bug. 
 
 ### Remaining Bugs
 
@@ -244,8 +244,8 @@ The live site can be found here: https://project3-hangman.herokuapp.com/
 
 - Colour was produced in the terminal by installing and importing the Colorama library.
 - Request diffculty function adapts from the validate_data function used in Code Institute's Love Sandwiches project
--  update_hidden function adapts on code from following link: https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string
-- Thanks to Oisin, a tutor a Code Institute for helping me to solve the error where a correct guess after an incorrect guess caused the program to crash.
+- update_hidden function adapts on code from following link: https://tutorial.eyehunts.com/python/python-replace-character-in-a-string-by-index-example-code/#:~:text=Replace%20Character%20at%20a%20given,list%20items%20to%20the%20string
+- Thanks to Oisin, a tutor at Code Institute for helping me to solve the error where a correct guess after an incorrect guess caused the program to crash.
 - Thanks to my mentor, Ronan, for his support during the project.
 - Code Institute provided the template including the terminal for deployment.
 - Planning chart made at Lucidchart.com
